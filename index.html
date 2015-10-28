@@ -51,17 +51,17 @@
 				<section>
 					<h2>Ordenamiento</h2>
 					<p>
-						El ordenamiento toma un arreglo desordenado y lo convierte en uno ordenado.
+						El ordenamiento toma un arreglo desordenado A[ ] y lo convierte en uno ordenado.
 
 					</p>
 					<span class="fragment fade-in">
 						<table>
 							<thead>
-								<th>1</th>
-								<th>2</th>
-								<th>3</th>
-								<th>4</th>
-								<th>5</th>
+								<th>A[0]</th>
+								<th>A[1]</th>
+								<th>A[2]</th>
+								<th>A[3]</th>
+								<th>A[4]</th>
 							</thead>
 							<tbody>
 								<tr>
@@ -77,11 +77,11 @@
 					<span class="fragment fade-in">				
 						<table>
 							<thead>
-								<th>1</th>
-								<th>2</th>
-								<th>3</th>
-								<th>4</th>
-								<th>5</th>
+								<th>A[0]</th>
+								<th>A[1]</th>
+								<th>A[2]</th>
+								<th>A[3]</th>
+								<th>A[4]</th>
 							</thead>
 							<tbody>
 								<tr>
@@ -113,11 +113,11 @@
 					<section>
 						<table class="fragment fade-out" style="position: absolute;" data-fragment-index="2">
 							<thead>
-								<th>1</th>
-								<th>2</th>
-								<th>3</th>
-								<th>4</th>
-								<th>5</th>
+								<th>A[0]</th>
+								<th>A[1]</th>
+								<th>A[2]</th>
+								<th>A[3]</th>
+								<th>A[4]</th>
 							</thead>
 							<tbody>
 								<tr>
@@ -132,11 +132,11 @@
 						<span class="fragment" data-fragment-index="2">
 							<table class="fragment fade-out" style="position: absolute;" data-fragment-index="4">
 								<thead>
-									<th>1</th>
-									<th>2</th>
-									<th>3</th>
-									<th>4</th>
-									<th>5</th>
+									<th>A[0]</th>
+									<th>A[1]</th>
+									<th>A[2]</th>
+									<th>A[3]</th>
+									<th>A[4]</th>
 								</thead>
 								<tbody>
 									<tr>
@@ -152,11 +152,11 @@
 						<span class="fragment" data-fragment-index="4">
 							<table class="fragment fade-out" style="position: absolute;" data-fragment-index="7">
 								<thead>
-									<th>1</th>
-									<th>2</th>
-									<th>3</th>
-									<th>4</th>
-									<th>5</th>
+									<th>A[0]</th>
+									<th>A[1]</th>
+									<th>A[2]</th>
+									<th>A[3]</th>
+									<th>A[4]</th>
 								</thead>
 								<tbody>
 									<tr>
@@ -177,11 +177,11 @@
 						<span class="fragment" data-fragment-index="7">
 							<table class="fragment fade-out" style="position: absolute;" data-fragment-index="9">
 								<thead>
-									<th>1</th>
-									<th>2</th>
-									<th>3</th>
-									<th>4</th>
-									<th>5</th>
+									<th>A[0]</th>
+									<th>A[1]</th>
+									<th>A[2]</th>
+									<th>A[3]</th>
+									<th>A[4]</th>
 								</thead>
 								<tbody>
 									<tr>
@@ -197,11 +197,11 @@
 						<span class="fragment" data-fragment-index="9">
 							<table style="position: absolute;">
 								<thead>
-									<th>1</th>
-									<th>2</th>
-									<th>3</th>
-									<th>4</th>
-									<th>5</th>
+									<th>A[0]</th>
+									<th>A[1]</th>
+									<th>A[2]</th>
+									<th>A[3]</th>
+									<th>A[4]</th>
 								</thead>
 								<tbody>
 									<tr>
@@ -233,13 +233,14 @@
 					<pre>
 
 
+	arreglo[MAX]
 	índice <- 1
-	última_comparación_en <- n - 1		
+	límite_superior <- n - 1		
 
 	ciclo
-	  salir_si (índice > última_comparación_en)
-	  si (Arreglo[índice] > Arreglo[índice + 1]) entonces
-	    Intercambiar (Arreglo[índice], Arreglo[índice + 1])
+	  salir_si (índice > límite_superior)
+	  si (arreglo[índice] > arreglo[índice + 1]) entonces
+	    Intercambiar (arreglo[índice], arreglo[índice + 1])
 	  fin
 	  índice <- índice + 1
 	fin
@@ -269,18 +270,18 @@
 					<p>
 						<ul>
 							<li>En el ejemplo sólo el valor más grande fue colocado correctamente</li>
-							<li>Todos <em>los otros</em> elementos están <em>desordenados</em></li>
+							<li>Todos los <em>demás</em> elementos están <em>desordenados</em></li>
 							<li>Es necesario <span class="fragment grow" data-fragment-index="1"><strong>repetir</strong></span> el proceso</li>
 						</ul>
 					</p>
 					<br>
 					<table>
 						<thead>
-							<th>1</th>
-							<th>2</th>
-							<th>3</th>
-							<th>4</th>
-							<th>5</th>
+							<th>A[0]</th>
+							<th>A[1]</th>
+							<th>A[2]</th>
+							<th>A[3]</th>
+							<th>A[4]</th>
 						</thead>
 						<tbody>
 							<tr>
@@ -297,24 +298,26 @@
 				<section>
 					<h2>Entonces cuántas veces hay que<br><span style="color:#41A3CC">Elevar la Burbuja</span>?</h2>
 
-					<p>Si tenemos N elementos...</p>
+					<p>Si tenemos <span style="color:#41A3CC"><strong>N</strong></span> elementos...</p>
 					<p>Y si cada vez <span style="color:#41A3CC">Elevamos</span> uno de ellos a su posición correcta...</p>
 					<p>Tendremos que <span style="color:#41A3CC">Elevar la Burbuja N - 1 veces</span> para garantizar que hemos acomodado los elementos correctamente.</p>
 				</section>
 
 				<section>
-					<h2><span style="color:#41A3CC">Elevamos</span> todas las burbujas</h2>
+					<h2><span style="color:#41A3CC">Elevamos</span></h2>
 
-					<table>
+					<table class="fragment fade-in">
 						<thead>
-							<th>1</th>
-							<th>2</th>
-							<th>3</th>
-							<th>4</th>
-							<th>5</th>
+							<th></th>
+							<th>A[0]</th>
+							<th>A[1]</th>
+							<th>A[2]</th>
+							<th>A[3]</th>
+							<th>A[4]</th>
 						</thead>
 						<tbody>
 							<tr>
+								<td><span style="color: #41A3CC">1</td>
 								<td>66</td>
 								<td>12</td>
 								<td>75</td>
@@ -323,16 +326,18 @@
 							</tr>
 						</tbody>
 					</table>
-					<table>
+					<table class="fragment fade-in">
 						<thead>
-							<th>1</th>
-							<th>2</th>
-							<th>3</th>
-							<th>4</th>
-							<th>5</th>
+							<th></th>
+							<th>A[0]</th>
+							<th>A[1]</th>
+							<th>A[2]</th>
+							<th>A[3]</th>
+							<th>A[4]</th>
 						</thead>
 						<tbody>
 							<tr>
+								<td><span style="color: #41A3CC">2</td>
 								<td>12</td>
 								<td>66</td>
 								<td>6</td>
@@ -341,16 +346,18 @@
 							</tr>
 						</tbody>
 					</table>
-					<table>
+					<table class="fragment fade-in">
 						<thead>
-							<th>1</th>
-							<th>2</th>
-							<th>3</th>
-							<th>4</th>
-							<th>5</th>
+							<th></th>
+							<th>A[0]</th>
+							<th>A[1]</th>
+							<th>A[2]</th>
+							<th>A[3]</th>
+							<th>A[4]</th>
 						</thead>
 						<tbody>
 							<tr>
+								<td><span style="color: #41A3CC">3</td>
 								<td>12</td>
 								<td>6</td>
 								<td><span style="color:red">66</span></td>
@@ -359,16 +366,18 @@
 							</tr>
 						</tbody>
 					</table>
-					<table>
+					<table class="fragment fade-in">
 						<thead>
-							<th>1</th>
-							<th>2</th>
-							<th>3</th>
-							<th>4</th>
-							<th>5</th>
+							<th></th>
+							<th>A[0]</th>
+							<th>A[1]</th>
+							<th>A[2]</th>
+							<th>A[3]</th>
+							<th>A[4]</th>
 						</thead>
 						<tbody>
 							<tr>
+								<td><span style="color: #41A3CC">4</td>
 								<td>6</td>
 								<td><span style="color:red">12</span></td>
 								<td><span style="color:red">66</span></td>
@@ -377,7 +386,7 @@
 							</tr>
 						</tbody>
 					</table>
-					<p><span style="color: red;">N - 1</span> veces</p>
+					<p class="fragment fade-in"><span style="color: #41A3CC">N - 1</span> veces</p>
 				</section>
 
 				<section data-transition="zoom-out">
@@ -385,13 +394,14 @@
 				</section>
 
 				<section data-transition="zoom-in">
+					<p>En <span style="color: #41A3CC">Azul</span> se pueden ver el número de elementos <br><span style="color: #41A3CC">desordenados</span> que quedan después de cada ciclo</p>
 					<table>
 						<thead>
-							<th>1</th>
-							<th>2</th>
-							<th>3</th>
-							<th>4</th>
-							<th>5</th>
+							<th>A[0]</th>
+							<th>A[1]</th>
+							<th>A[2]</th>
+							<th>A[3]</th>
+							<th>A[4]</th>
 						</thead>
 						<tbody>
 							<tr>
@@ -403,11 +413,11 @@
 							</tr>
 						</tbody>
 						<thead>
-							<th>1</th>
-							<th>2</th>
-							<th>3</th>
-							<th>4</th>
-							<th>5</th>
+							<th>A[0]</th>
+							<th>A[1]</th>
+							<th>A[2]</th>
+							<th>A[3]</th>
+							<th>A[4]</th>
 						</thead>
 						<tbody>
 							<tr>
@@ -419,11 +429,11 @@
 							</tr>
 						</tbody>
 						<thead>
-							<th>1</th>
-							<th>2</th>
-							<th>3</th>
-							<th>4</th>
-							<th>5</th>
+							<th>A[0]</th>
+							<th>A[1]</th>
+							<th>A[2]</th>
+							<th>A[3]</th>
+							<th>A[4]</th>
 						</thead>
 						<tbody>
 							<tr>
@@ -435,11 +445,11 @@
 							</tr>
 						</tbody>
 						<thead>
-							<th>1</th>
-							<th>2</th>
-							<th>3</th>
-							<th>4</th>
-							<th>5</th>
+							<th>A[0]</th>
+							<th>A[1]</th>
+							<th>A[2]</th>
+							<th>A[3]</th>
+							<th>A[4]</th>
 						</thead>
 						<tbody>
 							<tr>
@@ -458,17 +468,17 @@
 					<hr>
 					<ul>
 						<li>Es la tercera <em>elevación</em></li>
-						<li>Max es <strong>5</strong></li>
+						<li>Max es <strong>5</strong>, el límite superior inicial</li>
 						<li>Por lo tanto tenemos <strong>2</strong> comparaciones por hacer</li>
 					</ul>
 					<br><br>
 					<table>
 						<thead>
-							<th>1</th>
-							<th>2</th>
-							<th>3</th>
-							<th>4</th>
-							<th>5</th>
+							<th>A[0]</th>
+							<th>A[1]</th>
+							<th>A[2]</th>
+							<th>A[3]</th>
+							<th>A[4]</th>
 						</thead>
 						<tbody>
 							<tr>
@@ -476,11 +486,118 @@
 								<td><span class="fragment highlight-green" data-fragment-index="1">12</span></td>
 								<td><span class="fragment highlight-green" data-fragment-index="2">75</span></td>
 								<td><span style="color:red">6</span></td>
+								<td><span style="color:red">98</span></td>
 							</tr>
 						</tbody>
 					</table>
 				</section>
 				
+				<section data-transition="slide-in fade-out">
+					<h2>¿Cómo se ve ahora?</h2>
+
+					<pre>
+
+	  límite_superior <- n - 1
+	
+	  ciclo
+	    salir_si (límite_superior = 0)
+	    índice <- 1
+	    ciclo
+	      salir_si (índice > límite_superior)
+	      si (arreglo[índice] > arreglo[índice + 1]) entonces
+	        Intercambiar (arreglo[índice], arreglo[índice + 1])
+	      fin
+	      índice <- índice + 1
+	    fin
+	    límite_superior <- límite_superior - 1
+	  fin
+
+					</pre>
+
+					<p>Agregamos un ciclo para reducir el límite superior<br>cada vez que se ordena un valor</p>
+				</section>
+
+				<section>
+					
+					<h2>Pero...</h2>
+
+					<p>¿Y si tenemos un arreglo como este?</p>
+
+					<table class="fragment fade-in" data-fragment-index="1">
+						<thead>
+							<th>B[0]</th>
+							<th>B[1]</th>
+							<th>B[2]</th>
+							<th>B[3]</th>
+							<th>B[4]</th>
+						</thead>
+						<tbody>
+							<tr>
+								<td><span>6</span></td>
+								<td><span>12</span></td>
+								<td><span class="fragment highlight-red" data-fragment-index="3">98</span></td>
+								<td><span>66</span></td>
+								<td><span>75</span></td>
+							</tr>
+						</tbody>
+					</table>
+
+					<p class="fragment fade-in" data-fragment-index="2">El programa ejecutará el procedimiento <span style="color: #41A3CC">N-1 veces</span>...<br>aunque sólo haya <span class="fragment highlight-red" data-fragment-index="3">un elemento</span> fuera de lugar.</p>
+
+				</section>
+
+				<section>
+					
+					<h2>Bandera Booleana</h2>
+
+					<p>Para corregir el error hay que detectar la situación y salir antes del procedimiento</p>
+
+					<ul>
+						<li>Podemos usar una variable booleana para detectar si ocurrió algún intercambio en el procedimiento</li>
+						<li>Si no ocurriera ningún intercambio sabremos que el arreglo ya está ordenado</li>
+						<li>El valor de la variable deberá ser reiniciado cada vez que se ordene un número</li>
+					</ul>
+
+				</section>
+
+				<section>
+
+					<h2>Actualizamos nuestro Algoritmo</h2>
+					
+					<pre>
+
+	  intercambio <- Verdadero 
+	  // Declaramos y asignamos valor a la variable
+	  límite_superior <- n - 1
+	
+	  ciclo
+	    // Aplicamos la condición
+	    salir_si ((límite_superior = 0) O (intercambio = Falso)) 
+	    // Y reiniciamos la Variable
+	    Intercambio <- Falso 
+	    índice <- 1
+	    ciclo
+	      salir_si (índice > límite_superior)
+	      si (arreglo[índice] > arreglo[índice + 1]) entonces
+	        Intercambiar (arreglo[índice], arreglo[índice + 1])
+	        // Confirmamos los intercambios
+	        intercambio = Verdadero
+	      fin
+	      índice <- índice + 1
+	    fin
+	    límite_superior <- límite_superior - 1
+	  fin					
+
+	  				</pre>
+
+				</section>
+
+				<section>
+					
+					<h1>Ahora Pasemos todo a C</h1>
+
+				</section>
+
 				<section style="text-align: left;">
 					<h1>Continuará</h1>
 				</section>
