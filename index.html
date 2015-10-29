@@ -703,49 +703,6 @@ int main () {
 		printf("%d\n", arreglo[i]);
 
 	printf("Número de ciclos: %d\n", count);
-}#include <stdio.h>
-
-void intercambiar (int *a, int *b);
-
-int main () {
-
-	int limite, i, temp;
-	int cambio = 1;
-	int count = 0;
-
-	printf("Ingrese el número de elementos\n");
-	scanf("%d", &limite);
-
-	int arreglo[limite];
-
-	printf("Ingrese %d elementos\n", limite);
-	for (i = 0; i < limite; i++)
-		scanf("%d", &arreglo[i]);
-
-	temp = limite;
-
-	for (limite -= 1; (!(limite == 0) && cambio); limite--) {
-		cambio = 0;
-		for (i = 0; i < limite; i++) {
-			if (arreglo[i] > arreglo [i+1]){
-				intercambiar (&arreglo[i], &arreglo[i+1]);
-				cambio = 1;
-			}
-		}
-		count++;
-	}
-
-	printf("Estos son los elementos ordenados:\n");
-	for (i = 0; i < temp; i++)
-		printf("%d\n", arreglo[i]);
-
-	printf("Número de ciclos: %d\n", count);
-}
-
-void intercambiar (int *a, int *b) {
-	int temp = *a;
-	*a = *b;
-	*b = temp;
 }
 
 void intercambiar (int *a, int *b) {
