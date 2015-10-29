@@ -230,36 +230,35 @@
 				<section data-transition="slide-in fade-out">
 					<h2>Algoritmo para "Elevar la Burbuja"</h2>
 
-					<pre>
+					<pre><code>
 
-
-	arreglo[MAX]
-	índice <- 1
+  	arreglo[MAX]
+  	índice <- 1
 	límite_superior <- n - 1		
 
-	ciclo
-	  salir_si (índice > límite_superior)
-	  si (arreglo[índice] > arreglo[índice + 1]) entonces
-	    Intercambiar (arreglo[índice], arreglo[índice + 1])
-	  fin
-	  índice <- índice + 1
-	fin
+  	ciclo
+  	  salir_si (índice > límite_superior)
+  	  si (arreglo[índice] > arreglo[índice + 1]) entonces
+  	    Intercambiar (arreglo[índice], arreglo[índice + 1])
+  	  fin
+  	  índice <- índice + 1
+  	fin
 
-					</pre>
+					</code></pre>
 				</section>
 
 				<section data-transition="fade-in slide-out">		
 					<h2>La función Intercambiar</h2>
 
-					<pre>
+					<pre><code>
 
 
-	funcion Intercambiar (a, b)
-		temporal <- a
-		a <- b
-		b <- temporal
+  funcion Intercambiar (a, b)
+	  temporal <- a
+	  a <- b
+	  b <- temporal
 
-					</pre>
+					</code></pre>
 				</section>
 
 				<section data-transition="zoom-out">
@@ -495,24 +494,24 @@
 				<section data-transition="slide-in fade-out">
 					<h2>¿Cómo se ve ahora?</h2>
 
-					<pre>
+					<pre><code>
 
-	  límite_superior <- n - 1
-	
-	  ciclo
-	    salir_si (límite_superior = 0)
-	    índice <- 1
-	    ciclo
-	      salir_si (índice > límite_superior)
-	      si (arreglo[índice] > arreglo[índice + 1]) entonces
-	        Intercambiar (arreglo[índice], arreglo[índice + 1])
-	      fin
-	      índice <- índice + 1
-	    fin
-	    límite_superior <- límite_superior - 1
-	  fin
+  límite_superior <- n - 1
 
-					</pre>
+  ciclo
+    salir_si (límite_superior = 0)
+    índice <- 1
+    ciclo
+      salir_si (índice > límite_superior)
+      si (arreglo[índice] > arreglo[índice + 1]) entonces
+        Intercambiar (arreglo[índice], arreglo[índice + 1])
+      fin
+      índice <- índice + 1
+    fin
+    límite_superior <- límite_superior - 1
+  fin
+
+					</code></pre>
 
 					<p>Agregamos un ciclo para reducir el límite superior<br>cada vez que se ordena un valor</p>
 				</section>
@@ -564,31 +563,25 @@
 
 					<h2>Actualizamos nuestro Algoritmo</h2>
 					
-					<pre>
+					<pre><code>
+  cambio <- Verdadero  // Declaramos y asignamos valor a la variable
+  límite_superior <- n - 1
 
-	  intercambio <- Verdadero 
-	  // Declaramos y asignamos valor a la variable
-	  límite_superior <- n - 1
-	
+  ciclo
+	  salir_si ((límite_superior = 0) O (cambio = Falso)) // Aplicamos la condición
+	  cambio <- Falso // Y reiniciamos la Variable
+	  índice <- 1
 	  ciclo
-	    // Aplicamos la condición
-	    salir_si ((límite_superior = 0) O (intercambio = Falso)) 
-	    // Y reiniciamos la Variable
-	    Intercambio <- Falso 
-	    índice <- 1
-	    ciclo
-	      salir_si (índice > límite_superior)
-	      si (arreglo[índice] > arreglo[índice + 1]) entonces
-	        Intercambiar (arreglo[índice], arreglo[índice + 1])
-	        // Confirmamos los intercambios
-	        intercambio = Verdadero
-	      fin
-	      índice <- índice + 1
-	    fin
-	    límite_superior <- límite_superior - 1
-	  fin					
-
-	  				</pre>
+  		  salir_si (índice > límite_superior)
+  		  si (arreglo[índice] > arreglo[índice + 1]) entonces
+    		  Intercambiar (arreglo[índice], arreglo[índice + 1])    
+    		  cambio = Verdadero // Confirmamos un cambio
+  		  fin
+  		  índice <- índice + 1
+	  fin
+	  límite_superior <- límite_superior - 1
+  fin					
+	  				</code></pre>
 
 				</section>
 
@@ -598,8 +591,174 @@
 
 				</section>
 
-				<section style="text-align: left;">
-					<h1>Continuará</h1>
+				<section>
+					
+					<h2>Elevar la Burbuja</h2>
+
+					<pre><code data-trim>
+						
+for (i = 0; i < limite; i++) {
+	if (arreglo[i] > arreglo [i+1]){
+		intercambiar (&arreglo[i], &arreglo[i+1]);
+		cambio = 1;
+	}
+}
+
+					</code></pre>
+
+				</section>
+
+				<section>
+
+				<h2>La Función Intercambiar</h2>
+
+					<pre><code data-trim>
+
+void intercambiar (int *a, int *b) {
+	int temp = *a;
+	*a = *b;
+	*b = temp;
+}
+
+  					</code></pre>
+					
+				</section>
+
+				<section>
+					
+					<h2>El Algoritmo con el Límite Disminuyendo</h2>
+
+					<pre><code data-trim>
+for (limite -= 1; !(limite == 0); limite--) {
+	for (i = 0; i < limite; i++) {
+		if (arreglo[i] > arreglo [i+1]){
+			intercambiar (&arreglo[i], &arreglo[i+1]);
+		}
+	}
+}
+					</code></pre>
+					
+					<p>
+						Comnezamos con <span style="color: #41A3CC">N - 1</span>, disminuimos <span style="color: #41A3CC">N</span> en cada iteración, y terminamos cuando ya no hay más comparaciones por hacer.
+					</p>				
+
+				</section>
+
+				<section>
+					
+					<h2>Bandera Booleana</h2>
+
+					<pre><code data-trim>
+char cambio = 1; // Declaramos la variable booleana
+for (limite -= 1; (!(limite == 0) && cambio); limite--) { // Nueva condición
+	cambio = 0; // Reiniciamos la variable
+	for (i = 0; i < limite; i++) {
+		if (arreglo[i] > arreglo [i+1]){
+			intercambiar (&arreglo[i], &arreglo[i+1]);
+			cambio = 1; // Confirmamos un cambio
+		}
+	}
+}
+					</code></pre>
+
+				</section>
+
+				<section>
+					
+					<h2>Todo junto con últimos detalles</h2>
+					
+					<pre><code data-trim>
+void intercambiar (int *a, int *b);
+
+int main () {
+
+	int limite, i, temp; // Temp remplaza a limite en el output
+	int cambio = 1;
+	int count = 0; // Verifica que el número de iteraciones sea el mínimo
+
+	printf("Ingrese el número de elementos\n");
+	scanf("%d", &limite);
+
+	int arreglo[limite];
+
+	printf("Ingrese %d elementos\n", limite);
+	for (i = 0; i < limite; i++)
+		scanf("%d", &arreglo[i]);
+
+	temp = limite;
+
+	for (limite -= 1; (!(limite == 0) && cambio); limite--) {
+		cambio = 0;
+		for (i = 0; i < limite; i++) {
+			if (arreglo[i] > arreglo [i+1]){
+				intercambiar (&arreglo[i], &arreglo[i+1]);
+				cambio = 1;
+			}
+		}
+		count++;
+	}
+
+	printf("Estos son los elementos ordenados:\n");
+	for (i = 0; i < temp; i++)
+		printf("%d\n", arreglo[i]);
+
+	printf("Número de ciclos: %d\n", count);
+}#include <stdio.h>
+
+void intercambiar (int *a, int *b);
+
+int main () {
+
+	int limite, i, temp;
+	int cambio = 1;
+	int count = 0;
+
+	printf("Ingrese el número de elementos\n");
+	scanf("%d", &limite);
+
+	int arreglo[limite];
+
+	printf("Ingrese %d elementos\n", limite);
+	for (i = 0; i < limite; i++)
+		scanf("%d", &arreglo[i]);
+
+	temp = limite;
+
+	for (limite -= 1; (!(limite == 0) && cambio); limite--) {
+		cambio = 0;
+		for (i = 0; i < limite; i++) {
+			if (arreglo[i] > arreglo [i+1]){
+				intercambiar (&arreglo[i], &arreglo[i+1]);
+				cambio = 1;
+			}
+		}
+		count++;
+	}
+
+	printf("Estos son los elementos ordenados:\n");
+	for (i = 0; i < temp; i++)
+		printf("%d\n", arreglo[i]);
+
+	printf("Número de ciclos: %d\n", count);
+}
+
+void intercambiar (int *a, int *b) {
+	int temp = *a;
+	*a = *b;
+	*b = temp;
+}
+
+void intercambiar (int *a, int *b) {
+	int temp = *a;
+	*a = *b;
+	*b = temp;
+}
+					</code></pre>
+
+				</section>
+
+				<section>
+					<h1>¡Felicidades!<br>Ya sabes ordenamiento burbuja.</h1>
 				</section>
 
 			</div>
@@ -636,9 +795,3 @@
 
 	</body>
 </html>
-								<td><span style="color:red">98</span></td>
-							</tr>
-						</tbody>
-					</table>
-				</section>
-
